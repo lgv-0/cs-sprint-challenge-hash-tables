@@ -3,6 +3,23 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    result = []
+
+    counters = {}
+    for array in arrays:
+        for integer in array:
+            alreadyDone = counters.get(integer)
+            
+            if alreadyDone == None:
+                alreadyDone = 1
+            else:
+                alreadyDone += 1
+
+            counters.__setitem__(integer, alreadyDone)
+
+    for x in counters:
+        if counters[x] == len(arrays):
+            result.append(x)
 
     return result
 
